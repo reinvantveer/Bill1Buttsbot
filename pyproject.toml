@@ -1,0 +1,18 @@
+[billy1buttsbot]
+chance_of_buttification = 0.01
+
+[tool.poetry]
+name = "billy1buttsbot"
+version = "0.1.0"
+description = "Twitch bot for buttifying sentences"
+authors = ["Rein van 't Veer"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
