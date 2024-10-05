@@ -24,6 +24,7 @@ twitchio = "^2.10.0"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.2"
+pre-commit = "^4.0.0"
 
 [tool.mypy]
 strict = true
