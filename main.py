@@ -8,7 +8,14 @@ def main(args: Namespace) -> None:
     with open(args.config, "rb") as f:
         data = tomllib.load(f)
 
-    print(data)
+    chance = data["billy1buttsbot"]["chance_of_buttification"]
+    print(f"Chance of buttification: {chance}")
+
+    roll = random.random()
+
+    if roll < chance:
+        print("Buttify!")
+
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Billy1ButtsBot service')
