@@ -1,5 +1,14 @@
 [billy1buttsbot]
 chance_of_buttification = 0.01
+ignore_users = [
+    "billy1buttsbot",
+    "nightbot",
+    "streamelements",
+    "streamelementsbot",
+    "streamlabs",
+    "streamlabsbot",
+    "Billy1Kirby",
+]
 
 [tool.poetry]
 name = "billy1buttsbot"
