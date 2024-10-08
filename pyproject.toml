@@ -1,5 +1,6 @@
 [billy1buttsbot]
 chance_of_buttification = 0.01
+channel = "billy1kirby"
 ignore_users = [
     "billy1buttsbot",
     "nightbot",
