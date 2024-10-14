@@ -11,6 +11,8 @@ ignore_users = [
     "streamlabsbot",
     "Billy1Kirby",
 ]
+verbose = true
+dry_run = false
 
 [project]
 name = "billy1buttsbot"

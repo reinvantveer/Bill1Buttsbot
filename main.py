@@ -14,7 +14,7 @@ def main(args: Namespace) -> None:
         config = tomllib.load(f)["tool"]["billy1buttsbot"]
 
     # Set the verbosity of the logger.
-    if args.verbose:
+    if config['verbose']:
         logger.remove()
         logger.add(sys.stderr, level="DEBUG")
     else:
@@ -22,14 +22,15 @@ def main(args: Namespace) -> None:
         logger.add(sys.stderr, level="INFO")
 
     token = input("Enter the Twitch OAuth token: ")
+    logger.debug("Verbose logging enabled.")
 
     settings = Settings(
-        channel=str(config["channel"]),
-        user=config["username"],
+        channel=str(config['channel']),
+        user=config['username'],
         token=token,
-        ignore_users=list(config["ignore_users"]),
+        ignore_users=list(config['ignore_users']),
         chance=float(config["chance_of_buttification"]),
-        dry_run=args.dry_run,
+        dry_run=config["dry_run"],
     )
 
     if settings.dry_run:
@@ -43,8 +44,6 @@ def main(args: Namespace) -> None:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Billy1ButtsBot service')
     parser.add_argument('--config', default='pyproject.toml', help='Configuration')
-    parser.add_argument('-v', '--verbose', action='store_true', help='Verbose logging')
-    parser.add_argument('-d', '--dry-run', action='store_true', help='Dry run without actually sending messages')
 
     args = parser.parse_args()
     main(args)
