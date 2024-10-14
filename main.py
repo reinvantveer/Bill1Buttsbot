@@ -29,7 +29,11 @@ def main(args: Namespace) -> None:
         token=token,
         ignore_users=list(config["ignore_users"]),
         chance=float(config["chance_of_buttification"]),
+        dry_run=args.dry_run,
     )
+
+    if settings.dry_run:
+        logger.warning("Running in dry-run mode. No messages will be sent.")
 
     bot = Billy1ButtsBot(settings)
     logger.info("Starting Billy1ButtsBot... press Ctrl+C to stop.")
