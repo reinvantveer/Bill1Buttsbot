@@ -15,14 +15,16 @@ will buttify random messages in chat, and you can configure the chance of a mess
 
 ## Usage
 
-1. Run `poetry run python -m main --token=oauth:abcdefghijklmnop --verbose` to start the bot. Especially in the
-   beginning, it helps to run the bot in debug level logging, using `--verbose`. It will ask you for your Twitch
-   username and OAuth token, which you can get from [here](https://twitchapps.com/tmi/), choose "Connect", authorize
-   access and copy the OAuth token.
-3. If you want to run the bot in the background, you can use `poetry run python -m main &` on Linux or `start poetry run python -m main` on Windows
-4. If you want to stop the bot, you can use `pkill -f "python -m main"` on Linux or `taskkill /f /im "python.exe" /fi "WINDOWTITLE eq poetry run python -m main"` on Windows
-5. If you want to update the bot, you can use `git pull` to get the latest changes, and then run `poetry install` to update the dependencies
+1. Run `poetry run python -m main` to start the bot. Especially in the beginning, it helps to run the bot in debug level
+   logging, using `--verbose`. It will ask you for your Twitch username and OAuth token, which you can get
+   from [here](https://twitchapps.com/tmi/), choose "Connect", authorize access and copy the OAuth token.
+2. If you want to run the bot in the background, you can use `poetry run python -m main &` on Linux or
+   `start poetry run python -m main` on Windows
+3. If you want to stop the bot, you can use `Ctrl-C` on either Linux or Windows
 
 ## Features
 - [x] Buttification of random messages
-- 
+- [x] Configuration of buttification chance
+- [x] Skip first message for any user
+- [x] Skip messages from the bot itself
+- [x] Skip messages from any user listed in pyproject.toml
