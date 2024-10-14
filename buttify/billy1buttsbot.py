@@ -32,7 +32,7 @@ class Billy1ButtsBot(commands.Bot):  # type: ignore[misc]
             logger.debug(f"Ignoring echo message from {message.author.name}")
             return
 
-        if message.author.name == self.settings.user:
+        if message.author.name == self.settings.user and not self.settings.dry_run:
             logger.debug(f"Ignoring message from self")
             return
 
