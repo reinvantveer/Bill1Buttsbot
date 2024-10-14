@@ -1,3 +1,17 @@
+[tool.billy1buttsbot]
+chance_of_buttification = 0.01
+channel = "rein_the_rednosedreindeer"
+username = "rein_the_rednosedreindeer"
+ignore_users = [
+    "billy1buttsbot",
+    "nightbot",
+    "streamelements",
+    "streamelementsbot",
+    "streamlabs",
+    "streamlabsbot",
+    "Billy1Kirby",
+]
+
 [project]
 name = "billy1buttsbot"
 version = "0.1.0"
@@ -10,21 +24,6 @@ requires-python = "^3.11"
 
 [project.urls]
 repository = "https://github.com/reinvantveer/Billy1ButtsBot"
-
-[tool.billy1buttsbot]
-chance_of_buttification = 0.01
-channel = "billy1kirby"
-username = "Billy1ButtsBot"
-
-ignore_users = [
-    "billy1buttsbot",
-    "nightbot",
-    "streamelements",
-    "streamelementsbot",
-    "streamlabs",
-    "streamlabsbot",
-    "Billy1Kirby",
-]
 
 [tool.poetry]
 name = "billy1buttsbot"
