@@ -1,7 +1,7 @@
 [tool.billy1buttsbot]
 chance_of_buttification = 0.01
-channel = "rein_the_rednosedreindeer"
-username = "rein_the_rednosedreindeer"
+channel = "Billy1Kirby"
+username = "Billy1ButtsBot"
 ignore_users = [
     "billy1buttsbot",
     "nightbot",
