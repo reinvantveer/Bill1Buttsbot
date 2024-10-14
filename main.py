@@ -13,14 +13,20 @@ def main(args: Namespace) -> None:
     with open(args.config, "rb") as f:
         config = tomllib.load(f)["tool"]["billy1buttsbot"]
 
+    # Set the verbosity of the logger.
     if args.verbose:
         logger.remove()
         logger.add(sys.stderr, level="DEBUG")
+    else:
+        logger.remove()
+        logger.add(sys.stderr, level="INFO")
+
+    token = input("Enter the Twitch OAuth token: ")
 
     settings = Settings(
         channel=str(config["channel"]),
         user=config["username"],
-        token=args.token,
+        token=token,
         ignore_users=list(config["ignore_users"]),
         chance=float(config["chance_of_buttification"]),
     )
