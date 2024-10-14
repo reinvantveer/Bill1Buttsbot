@@ -1,41 +1,34 @@
 import argparse
 import tomllib
 from argparse import Namespace
-from dataclasses import dataclass
+
+from loguru import logger
 
 from buttify.billy1buttsbot import Billy1ButtsBot
-
-
-@dataclass
-class Settings:
-    channel: str
-    user: str
-    token: str
-    ignore_users: list[str]
-    chance: float
+from buttify.settings import Settings
 
 
 def main(args: Namespace) -> None:
     with open(args.config, "rb") as f:
-        data = tomllib.load(f)
+        config = tomllib.load(f)["tool"]["billy1buttsbot"]
 
     settings = Settings(
-        channel=str(data["billy1buttsbot"]["channel"]),
-        user=args.user,
+        channel=str(config["channel"]),
+        user=config["username"],
         token=args.token,
-        ignore_users=list(data["billy1buttsbot"]["ignore_users"]),
-        chance=float(data["billy1buttsbot"]["chance_of_buttification"]),
+        ignore_users=list(config["ignore_users"]),
+        chance=float(config["chance_of_buttification"]),
     )
 
     bot = Billy1ButtsBot(settings)
+    logger.info("Starting Billy1ButtsBot... press Ctrl+C to stop.")
     bot.run()
 
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Billy1ButtsBot service')
     parser.add_argument('--config', default='pyproject.toml', help='Configuration')
-    parser.add_argument('--user', default='billy1buttsbot', help='User')
-    parser.add_argument('--token', help='Twitch OAuth token', required=True)
+    parser.add_argument('--token', help='Twitch OAuth token, see https://twitchapps.com/tmi/', required=True)
 
     args = parser.parse_args()
     main(args)
