@@ -44,6 +44,7 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser('Billy1ButtsBot service')
     parser.add_argument('--config', default='pyproject.toml', help='Configuration')
     parser.add_argument('-v', '--verbose', action='store_true', help='Verbose logging')
+    parser.add_argument('-d', '--dry-run', action='store_true', help='Dry run without actually sending messages')
 
     args = parser.parse_args()
     main(args)
