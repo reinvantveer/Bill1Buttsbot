@@ -54,4 +54,21 @@ class Billy1ButtsBot(commands.Bot):  # type: ignore[misc]
         await self.handle_commands(message)
 
     def buttify(self, message: Message) -> None:
-        message.content = f"{message} butts"
+        """Buttify the message and send it back to the channel."""
+        # Modify the message content. Split the message into words, and replace part of a random word with "butt".
+        words = message.content.split()
+        # Choose a random word from the message.
+        word_index = int(random() * len(words))
+        word = words[word_index]
+        # Choose a random index in the word.
+        char_index = int(random() * len(word))
+        # Choose a maximum of 4 characters to replace.
+        max_4_length = int(random() * 4)
+        # Replace a random set of max 4 characters in the word with "butt".
+        words[word_index] = word[:char_index] + "butt" + word[char_index + max_4_length:]
+
+        # Emit the message back to the channel.
+        if not self.settings.dry_run:
+            self.connected_channels[0].send(' '.join(words))
+        else:
+            logger.info(f"Would have sent: {' '.join(words)}")
