@@ -1,4 +1,5 @@
 import argparse
+import sys
 import tomllib
 from argparse import Namespace
 
@@ -11,6 +12,10 @@ from buttify.settings import Settings
 def main(args: Namespace) -> None:
     with open(args.config, "rb") as f:
         config = tomllib.load(f)["tool"]["billy1buttsbot"]
+
+    if args.verbose:
+        logger.remove()
+        logger.add(sys.stderr, level="DEBUG")
 
     settings = Settings(
         channel=str(config["channel"]),
@@ -28,7 +33,7 @@ def main(args: Namespace) -> None:
 if __name__ == '__main__':
     parser = argparse.ArgumentParser('Billy1ButtsBot service')
     parser.add_argument('--config', default='pyproject.toml', help='Configuration')
-    parser.add_argument('--token', help='Twitch OAuth token, see https://twitchapps.com/tmi/', required=True)
+    parser.add_argument('-v', '--verbose', action='store_true', help='Verbose logging')
 
     args = parser.parse_args()
     main(args)
