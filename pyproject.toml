@@ -1,5 +1,7 @@
-[billy1buttsbot]
+[tool.billy1buttsbot]
 chance_of_buttification = 0.01
+channel = "Billy1Kirby"
+username = "Billy1ButtsBot"
 ignore_users = [
     "billy1buttsbot",
     "nightbot",
@@ -9,6 +11,19 @@ ignore_users = [
     "streamlabsbot",
     "Billy1Kirby",
 ]
+
+[project]
+name = "billy1buttsbot"
+version = "0.1.0"
+description = "Twitch bot for buttifying sentences"
+authors = [{name = "Rein van 't Veer", email = "rein@vantveer.me"}]
+maintainers = [{name = "Rein van 't Veer", email = "rein@vantveer.me"}]
+license = {file = "LICENSE"}
+readme = "README.md"
+requires-python = "^3.11"
+
+[project.urls]
+repository = "https://github.com/reinvantveer/Billy1ButtsBot"
 
 [tool.poetry]
 name = "billy1buttsbot"
@@ -21,6 +36,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 twitchio = "^2.10.0"
+loguru = "^0.7.2"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "^1.11.2"
